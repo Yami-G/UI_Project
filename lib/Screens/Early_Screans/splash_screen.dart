@@ -26,7 +26,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
     return Scaffold(
       body: Center(
         child: Image.asset(
-          Images.splash1,
+          Images.splash,
           width: 200.w,
           height: 200.h,
           fit: BoxFit.cover,

@@ -53,7 +53,7 @@ class SignInScreen extends HookConsumerWidget {
                 ),
                 Center(
                   child: Image.asset(
-                    Images.splash1,
+                    Images.splash,
                     width: 100.w,
                     height: 100.h,
                     fit: BoxFit.cover,
@@ -116,11 +116,11 @@ class SignInScreen extends HookConsumerWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SocialIcon(text: 'G'),
+                    SocialIcon(imagePath: Images.googleLogo, width: 35, height: 35),
                     SizedBox(
                       width: 30.w,
                     ),
-                    SocialIcon(text: 'f'),
+                    SocialIcon(imagePath: Images.faceBookLogo),
                   ],
                 ),
                 SizedBox(

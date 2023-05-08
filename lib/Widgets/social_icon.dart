@@ -2,26 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SocialIcon extends StatelessWidget {
-  String text;
+  String imagePath;
+  double? width;
+  double? height;
   SocialIcon({
     super.key,
-    required this.text,
+    required this.imagePath,
+    this.width,
+    this.height,
   });
 
   @override
   Widget build(BuildContext context) {
     return Material(
       shape: const CircleBorder(),
-      elevation: 5,
+      elevation: 8,
       child: CircleAvatar(
         radius: 25.r,
         backgroundColor: Colors.white,
-        child: Text(
-          text,
-          style: TextStyle(
-            fontSize: 38.sp,
-            fontWeight: FontWeight.bold,
-          ),
+        child: Image.asset(
+          imagePath,
+          width: width,
+          height: height,
         ),
       ),
     );

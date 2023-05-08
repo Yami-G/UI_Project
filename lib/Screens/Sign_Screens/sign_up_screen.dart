@@ -50,7 +50,7 @@ class SignUpScreen extends HookConsumerWidget {
                 ),
                 Center(
                   child: Image.asset(
-                    Images.splash1,
+                    Images.splash,
                     width: 100.w,
                     height: 100.h,
                     fit: BoxFit.cover,
@@ -71,7 +71,7 @@ class SignUpScreen extends HookConsumerWidget {
                 CustomTextFormField(
                   obscureText: false,
                   title: 'Email',
-                  controller: passwordController,
+                  controller: emailController,
                   hintText: 'e.g name@example.com',
                 ),
                 SizedBox(
