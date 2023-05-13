@@ -29,12 +29,15 @@ dependencies:
 
   #search bar
   easy_search_bar: ^2.5.0
-
   #widgets
   custom_navigation_bar: ^0.8.2
+  u_credit_card: ^1.0.3
+  dash_flags: ^0.1.1
+
 
   flutter_beep:
   flutter_otp_text_field: ^1.1.0+2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

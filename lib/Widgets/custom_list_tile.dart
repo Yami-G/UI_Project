@@ -8,12 +8,16 @@ class CustomListTile extends StatelessWidget {
   MainAxisAlignment mainAxisAlignment;
   CrossAxisAlignment crossAxisAlignment;
   bool showIcon;
+  bool? makeNewWidget;
+  Widget? widget;
 
   CustomListTile({
     super.key,
     required this.showIcon,
+    this.makeNewWidget,
     required this.imagePath,
     required this.title,
+    this.widget,
     required this.price,
     required this.index,
     required this.mainAxisAlignment,
@@ -43,7 +47,7 @@ class CustomListTile extends StatelessWidget {
                 IntrinsicWidth(
                   child: IntrinsicHeight(
                     child: SizedBox(
-                      width: 260,
+                      width: 210,
                       child: ListTile(
                         title: Text(title),
                         subtitle: Row(
@@ -69,6 +73,7 @@ class CustomListTile extends StatelessWidget {
                     ),
                   ),
                 ),
+                makeNewWidget ?? false ? widget! : SizedBox(),
               ],
             ),
           );

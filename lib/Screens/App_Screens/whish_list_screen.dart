@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../../Widgets/HomeScreenWidget/custom_list_tile.dart';
-import '../../Widgets/HomeScreenWidget/search_widget.dart';
+import '../../Widgets/custom_list_tile.dart';
+import '../../Widgets/search_widget.dart';
 
 class WishListScreen extends StatelessWidget {
   const WishListScreen({Key? key}) : super(key: key);

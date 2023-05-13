@@ -1,12 +1,14 @@
+import 'package:amit_course/Screens/App_Screens/notification_screen.dart';
+import 'package:amit_course/Screens/App_Screens/your_cart_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../Shared/Resources/images.dart';
-import '../Widgets/HomeScreenWidget/custom_list_view_builder.dart';
-import '../Widgets/HomeScreenWidget/icon_side_search.dart';
-import '../Widgets/HomeScreenWidget/list_view_title.dart';
-import '../Widgets/HomeScreenWidget/search_widget.dart';
-import '../Widgets/HomeScreenWidget/special_list_view.dart';
+import '../Widgets/custom_list_view_builder.dart';
+import '../Widgets/icon_side_search.dart';
+import '../Widgets/list_view_title.dart';
+import '../Widgets/search_widget.dart';
+import '../Widgets/special_list_view.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -35,10 +37,24 @@ class HomeScreen extends StatelessWidget {
                     SideSearchIcon(
                       icon: Icons.shopping_cart_outlined,
                       notification: 5,
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => const CartScreen(),
+                          ),
+                        );
+                      },
                     ),
                     SideSearchIcon(
                       icon: FontAwesomeIcons.bell,
                       notification: 0,
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => const NotificationScreen(),
+                          ),
+                        );
+                      },
                     ),
                   ],
                 ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../Shared/Resources/images.dart';
-import '../../Widgets/HomeScreenWidget/custom_list_tile.dart';
+import '../../Widgets/custom_list_tile.dart';
 import '../../Widgets/title_pop.dart';
 
 class NotificationScreen extends StatelessWidget {

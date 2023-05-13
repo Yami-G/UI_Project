@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../../Shared/Resources/images.dart';
+import '../Shared/Resources/images.dart';
 import 'list_view_title.dart';
 
 class CustomListViewB extends StatelessWidget {

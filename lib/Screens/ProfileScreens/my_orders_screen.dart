@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../Models/orders_models.dart';
-import '../../Widgets/MyOrderWidgets/cust_row.dart';
+import '../../Widgets/cust_row.dart';
 import '../../Widgets/title_pop.dart';
 
 class MyOrdersScreen extends StatelessWidget {

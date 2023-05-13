@@ -4,10 +4,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class SideSearchIcon extends StatelessWidget {
   IconData icon;
   int? notification;
+  void Function()? onPressed;
   SideSearchIcon({
     super.key,
     required this.icon,
     this.notification,
+    this.onPressed,
   });
 
   @override
@@ -22,7 +24,7 @@ class SideSearchIcon extends StatelessWidget {
             backgroundColor: Colors.white,
             radius: 24.r,
             child: IconButton(
-              onPressed: () {},
+              onPressed: onPressed,
               icon: Icon(
                 icon,
                 color: Colors.indigo,
