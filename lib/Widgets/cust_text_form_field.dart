@@ -3,14 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTextFormField extends StatelessWidget {
+  bool showTitle;
+
   String title;
   String hintText;
   bool obscureText;
   TextEditingController? controller;
   String? Function(String?)? validator;
+  int? maxLines;
   CustomTextFormField({
     super.key,
+    this.maxLines,
     this.validator,
+    required this.showTitle,
     this.controller,
     required this.title,
     required this.hintText,
@@ -22,7 +27,7 @@ class CustomTextFormField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SignScreenText(title: title),
+        showTitle ? SignScreenText(title: title) : SizedBox(),
         SizedBox(height: 7.h),
         Card(
           elevation: 5,
@@ -36,7 +41,7 @@ class CustomTextFormField extends StatelessWidget {
             ),
           ),
           child: TextFormField(
-            maxLines: 1,
+            maxLines: maxLines ?? 1,
             validator: validator,
             controller: controller,
             obscureText: obscureText,

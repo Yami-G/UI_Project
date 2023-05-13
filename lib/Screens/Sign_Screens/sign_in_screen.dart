@@ -67,11 +67,13 @@ class SignInScreen extends HookConsumerWidget {
                   title: 'Email Address',
                   controller: emailController,
                   hintText: 'e.g name@example.com',
+                  showTitle: true,
                 ),
                 SizedBox(
                   height: 15.h,
                 ),
                 CustomTextFormField(
+                  showTitle: true,
                   obscureText: true,
                   title: 'Password',
                   controller: passwordController,

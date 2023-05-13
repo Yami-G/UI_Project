@@ -1,9 +1,8 @@
-import 'package:easy_search_bar/easy_search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../Shared/Resources/images.dart';
-import '../Widgets/HomeScreenWidget/custom_list_view__builder.dart';
+import '../Widgets/HomeScreenWidget/custom_list_view_builder.dart';
 import '../Widgets/HomeScreenWidget/icon_side_search.dart';
 import '../Widgets/HomeScreenWidget/list_view_title.dart';
 import '../Widgets/HomeScreenWidget/search_widget.dart';

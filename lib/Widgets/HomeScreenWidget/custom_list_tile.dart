@@ -5,12 +5,19 @@ class CustomListTile extends StatelessWidget {
   String title;
   double price;
   int index;
+  MainAxisAlignment mainAxisAlignment;
+  CrossAxisAlignment crossAxisAlignment;
+  bool showIcon;
+
   CustomListTile({
     super.key,
+    required this.showIcon,
     required this.imagePath,
     required this.title,
     required this.price,
     required this.index,
+    required this.mainAxisAlignment,
+    required this.crossAxisAlignment,
   });
 
   @override
@@ -40,19 +47,22 @@ class CustomListTile extends StatelessWidget {
                       child: ListTile(
                         title: Text(title),
                         subtitle: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.end,
+                          mainAxisAlignment: mainAxisAlignment,
+                          crossAxisAlignment: crossAxisAlignment,
                           children: [
                             Text(
                               '\$$price',
                               style: const TextStyle(color: Colors.indigo),
                             ),
-                            IconButton(
-                                onPressed: () {},
-                                icon: const Icon(
-                                  Icons.add_shopping_cart_outlined,
-                                  color: Colors.indigo,
-                                ))
+                            showIcon
+                                ? IconButton(
+                                    onPressed: () {},
+                                    icon: const Icon(
+                                      Icons.add_shopping_cart_outlined,
+                                      color: Colors.indigo,
+                                    ),
+                                  )
+                                : SizedBox()
                           ],
                         ),
                       ),

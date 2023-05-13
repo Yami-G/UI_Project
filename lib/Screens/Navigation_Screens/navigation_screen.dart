@@ -14,7 +14,7 @@ final position = StateProvider((ref) => 0);
 
 class NavigatorScreen extends HookConsumerWidget {
   NavigatorScreen({Key? key}) : super(key: key);
-  final List<Widget> _navigationScreens = const [
+  final List<Widget> _navigationScreens = [
     HomeScreen(),
     CategoriesScreen(),
     SearchScreen(),

@@ -64,6 +64,9 @@ class SearchScreen extends StatelessWidget {
               imagePath: Images.lapTop,
               price: 200.75,
               index: 5,
+              showIcon: true,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.end,
             )
           ],
         ),

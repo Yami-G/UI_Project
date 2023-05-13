@@ -35,6 +35,9 @@ class WishListScreen extends StatelessWidget {
             ),
             CustomListTile(
               title: 'Bluetooth Printer',
+              showIcon: true,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.end,
               imagePath: Images.lapTop,
               price: 200.75,
               index: 5,

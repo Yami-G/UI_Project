@@ -61,6 +61,7 @@ class SignUpScreen extends HookConsumerWidget {
                 ),
                 CustomTextFormField(
                   obscureText: false,
+                  showTitle: true,
                   title: 'Name',
                   controller: nameController,
                   hintText: 'Please enter your name',
@@ -70,6 +71,7 @@ class SignUpScreen extends HookConsumerWidget {
                 ),
                 CustomTextFormField(
                   obscureText: false,
+                  showTitle: true,
                   title: 'Email',
                   controller: emailController,
                   hintText: 'e.g name@example.com',
@@ -78,6 +80,7 @@ class SignUpScreen extends HookConsumerWidget {
                   height: 10.h,
                 ),
                 CustomTextFormField(
+                  showTitle: true,
                   obscureText: true,
                   title: 'Password',
                   controller: passwordController,
