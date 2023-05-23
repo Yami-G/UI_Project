@@ -20,7 +20,7 @@ class SearchWidget extends StatelessWidget {
       elevation: 4,
       child: Container(
         width: width,
-        color: Colors.white,
+        color: Theme.of(context).primaryColor,
         height: 50.h,
         child: IntrinsicHeight(
           child: Padding(
@@ -30,12 +30,12 @@ class SearchWidget extends StatelessWidget {
               controller: controller,
               decoration: InputDecoration(
                 filled: true,
-                fillColor: Colors.white,
+                fillColor: Theme.of(context).primaryColor,
                 hintText: searchWord,
                 icon: const Icon(Icons.search_outlined),
                 iconColor: Colors.indigo,
                 border: InputBorder.none,
-                labelStyle: TextStyle(color: Colors.black, fontSize: 24.sp),
+                labelStyle: TextStyle(color: Theme.of(context).secondaryHeaderColor, fontSize: 24.sp),
               ),
             ),
           ),

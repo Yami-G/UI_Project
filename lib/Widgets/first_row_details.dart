@@ -31,10 +31,12 @@ class FirstRowDetails extends StatelessWidget {
             const SizedBox(
               width: 10,
             ),
-            const Text(
+            Text(
               '\$32.5',
               style: TextStyle(
-                  decoration: TextDecoration.lineThrough, decorationThickness: 1.5, decorationColor: Colors.black54),
+                  decoration: TextDecoration.lineThrough,
+                  decorationThickness: 1.5,
+                  decorationColor: Theme.of(context).secondaryHeaderColor.withOpacity(0.54)),
             ),
             const SizedBox(
               width: 10,

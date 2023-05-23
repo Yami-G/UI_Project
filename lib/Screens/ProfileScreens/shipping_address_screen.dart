@@ -27,11 +27,11 @@ class ShippingAddressScreen extends StatelessWidget {
                 const Icon(Icons.add_location_alt_outlined),
               ],
             ),
-            const Text(
+            Text(
               'Your Shipping Addresses',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                color: Colors.black54,
+                color: Theme.of(context).secondaryHeaderColor.withOpacity(0.54),
               ),
             ),
             Expanded(

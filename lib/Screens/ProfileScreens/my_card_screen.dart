@@ -28,11 +28,11 @@ class MyCardScreen extends StatelessWidget {
                 const Icon(Icons.add_card_rounded),
               ],
             ),
-            const Text(
+            Text(
               'Your Payment Cards',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                color: Colors.black54,
+                color: Theme.of(context).secondaryHeaderColor.withOpacity(0.54),
               ),
             ),
             Expanded(

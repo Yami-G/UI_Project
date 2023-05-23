@@ -12,8 +12,8 @@ class VerificationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        iconTheme: const IconThemeData(color: Colors.black),
+        backgroundColor: Theme.of(context).primaryColor,
+        iconTheme: IconThemeData(color: Theme.of(context).secondaryHeaderColor),
         elevation: 0,
       ),
       body: Padding(
@@ -27,7 +27,7 @@ class VerificationScreen extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 33.sp,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black,
+                  color: Theme.of(context).secondaryHeaderColor,
                 ),
               ),
               SizedBox(
@@ -38,7 +38,7 @@ class VerificationScreen extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 19.sp,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black87,
+                  color: Theme.of(context).secondaryHeaderColor.withOpacity(0.87),
                 ),
               ),
               SizedBox(

@@ -33,9 +33,9 @@ class ProductDetailsScreen extends ConsumerWidget {
             builder: (context, scrollController) {
               return Container(
                 clipBehavior: Clip.hardEdge,
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
+                decoration: BoxDecoration(
+                  color: Theme.of(context).primaryColor,
+                  borderRadius: const BorderRadius.only(
                     topRight: Radius.circular(50),
                     topLeft: Radius.circular(50),
                   ),
@@ -77,15 +77,15 @@ class ProductDetailsScreen extends ConsumerWidget {
             top: 20,
             left: 20,
             child: CircleAvatar(
-              backgroundColor: Colors.white,
+              backgroundColor: Theme.of(context).primaryColor,
               child: IconButton(
-                color: Colors.black,
+                color: Theme.of(context).secondaryHeaderColor.withOpacity(0.5),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
                 icon: const Icon(
                   Icons.arrow_back_ios,
-                  color: Colors.black54,
+                  color: Colors.orange,
                   size: 20,
                 ),
               ),

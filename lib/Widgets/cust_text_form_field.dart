@@ -30,12 +30,12 @@ class CustomTextFormField extends StatelessWidget {
         SizedBox(height: 7.h),
         Card(
           elevation: 5,
-          shadowColor: Colors.black54,
+          shadowColor: Theme.of(context).secondaryHeaderColor.withOpacity(0.54),
           clipBehavior: Clip.values[3],
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.r),
             side: BorderSide(
-              color: Colors.white,
+              color: Theme.of(context).primaryColor,
               width: 5.w,
             ),
           ),
@@ -48,11 +48,11 @@ class CustomTextFormField extends StatelessWidget {
               filled: true,
               hintText: hintText,
               hintStyle: TextStyle(
-                color: Colors.black38,
+                color: Theme.of(context).secondaryHeaderColor.withOpacity(0.38),
                 fontSize: 14.sp,
                 fontWeight: FontWeight.bold,
               ),
-              fillColor: Colors.white,
+              fillColor: Theme.of(context).primaryColor,
             ),
           ),
         ),

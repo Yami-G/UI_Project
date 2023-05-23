@@ -12,6 +12,7 @@ class CartClass extends StateNotifier<List<ProductsModels>> {
   addProductInCart(ProductsModels productModel) {
     if (productModel.quantity == null || productModel.quantity == 0) {
       productModel.quantity = 1;
+      totalPrice = totalPrice + productModel.productPrice;
       state = [...state, productModel];
     } else {
       productModel.quantity = productModel.quantity! + 1;

@@ -26,7 +26,7 @@ class SignInScreen extends HookConsumerWidget {
     final formKey = useMemoized(() => GlobalKey<FormState>());
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).primaryColor,
         elevation: 0,
       ),
       body: Form(
@@ -45,9 +45,10 @@ class SignInScreen extends HookConsumerWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const Text(
+                Text(
                   Texts.login,
-                  style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black45),
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Theme.of(context).secondaryHeaderColor.withOpacity(0.54)),
                 ),
                 SizedBox(
                   height: 15.h,

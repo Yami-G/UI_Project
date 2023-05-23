@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final themesProvider = StateNotifierProvider((ref) => ThemesData());
+final themesProvider = StateNotifierProvider<ThemesData, ThemeData>((ref) => ThemesData());
 
 class ThemesData extends StateNotifier<ThemeData> {
   ThemesData()
@@ -11,13 +11,19 @@ class ThemesData extends StateNotifier<ThemeData> {
         ));
 
   lightMode() {
-    return state = ThemeData(
+    state = ThemeData(
       scaffoldBackgroundColor: Colors.white,
-      primaryColor: Colors.white,
+      primaryColor: Colors.white, //sets the secondary color theme
+      secondaryHeaderColor: Colors.black,
+      iconTheme: const IconThemeData(color: Colors.black),
+      textTheme: const TextTheme(
+        headline1: TextStyle(color: Colors.indigo),
+        headline2: TextStyle(color: Colors.black),
+      ),
     );
   }
 
   darkMode() {
-    return state = ThemeData.dark();
+    state = ThemeData.dark();
   }
 }

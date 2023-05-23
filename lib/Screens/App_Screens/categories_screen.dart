@@ -43,7 +43,7 @@ class CategoriesScreen extends StatelessWidget {
                   return Container(
                     clipBehavior: Clip.hardEdge,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Theme.of(context).primaryColor,
                       borderRadius: BorderRadius.circular(20),
                       boxShadow: [
                         BoxShadow(
@@ -61,7 +61,7 @@ class CategoriesScreen extends StatelessWidget {
                           width: double.infinity,
                         ),
                         Container(
-                          color: Colors.black12,
+                          color: Theme.of(context).secondaryHeaderColor.withOpacity(0.12),
                           height: double.infinity,
                           width: double.infinity,
                         ),
@@ -71,7 +71,7 @@ class CategoriesScreen extends StatelessWidget {
                           child: Text(
                             categoryModels[index].name,
                             style: TextStyle(
-                              color: Colors.white.withOpacity(0.8),
+                              color: Theme.of(context).primaryColor.withOpacity(0.8),
                               fontSize: 14.sp,
                             ),
                           ),

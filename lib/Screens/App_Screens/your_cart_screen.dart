@@ -36,9 +36,9 @@ class CartScreen extends ConsumerWidget {
                 ),
                 Text(
                   '${ref.watch(cartProvider).isEmpty ? 'Zero' : ref.watch(cartProvider).length} Products',
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    color: Colors.black54,
+                    color: Theme.of(context).secondaryHeaderColor.withOpacity(0.54),
                   ),
                 ),
                 Expanded(
@@ -82,7 +82,7 @@ class CartScreen extends ConsumerWidget {
               ],
             ),
             Container(
-              color: Colors.white,
+              color: Theme.of(context).primaryColor,
               width: double.infinity,
               height: 60,
               padding: const EdgeInsets.symmetric(vertical: 5),
@@ -102,8 +102,8 @@ class CartScreen extends ConsumerWidget {
                               Text('\$000.0'),
                             ],
                           ),
-                          const Divider(
-                            color: Colors.black,
+                          Divider(
+                            color: Theme.of(context).secondaryHeaderColor,
                             height: 4,
                           ),
                           Row(
@@ -123,7 +123,8 @@ class CartScreen extends ConsumerWidget {
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.indigo, // Background color
-                        foregroundColor: Colors.white.withOpacity(0.7), // Text Color (Foreground color)
+                        foregroundColor:
+                            Theme.of(context).primaryColor.withOpacity(0.7), // Text Color (Foreground color)
                       ),
                       onPressed: () {
                         ref.watch(cartProvider.notifier).clearCart();

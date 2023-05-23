@@ -21,11 +21,12 @@ class MyApp extends ConsumerWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    ref.watch(themesProvider);
     return ScreenUtilInit(
       designSize: const Size(360, 690),
       builder: (context, child) {
         return MaterialApp(
-          theme: ref.watch(themesProvider.notifier).state,
+          theme: ref.watch(themesProvider),
           darkTheme: ThemeData.dark(),
           debugShowCheckedModeBanner: false,
           home: NavigatorScreen(),

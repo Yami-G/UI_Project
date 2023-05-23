@@ -34,8 +34,6 @@ dependencies:
   u_credit_card: ^1.0.3
   dash_flags: ^0.1.1
 
-
-
   flutter_beep:
   flutter_otp_text_field: ^1.1.0+2
 

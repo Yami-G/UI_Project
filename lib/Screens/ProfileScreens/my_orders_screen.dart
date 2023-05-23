@@ -37,8 +37,8 @@ class MyOrdersScreen extends StatelessWidget {
                             rightText: ordersModels[index].id,
                             leftText: 'Order #',
                           ),
-                          const Divider(
-                            color: Colors.black,
+                          Divider(
+                            color: Theme.of(context).secondaryHeaderColor,
                           ),
                           CustomRow(
                             leftText: 'Date',
@@ -62,10 +62,10 @@ class MyOrdersScreen extends StatelessWidget {
                                     color: Colors.indigo,
                                     borderRadius: BorderRadius.circular(5),
                                   ),
-                                  child: const Center(
+                                  child: Center(
                                     child: Text(
                                       'Details',
-                                      style: TextStyle(color: Colors.white),
+                                      style: TextStyle(color: Theme.of(context).primaryColor),
                                     ),
                                   ),
                                 ),
@@ -82,10 +82,10 @@ class MyOrdersScreen extends StatelessWidget {
                                           color: Colors.grey,
                                           borderRadius: BorderRadius.circular(5),
                                         ),
-                                        child: const Center(
+                                        child: Center(
                                           child: Text(
                                             'Track',
-                                            style: TextStyle(color: Colors.white),
+                                            style: TextStyle(color: Theme.of(context).primaryColor),
                                           ),
                                         ),
                                       ),

@@ -19,7 +19,7 @@ class SocialIcon extends StatelessWidget {
       elevation: 8,
       child: CircleAvatar(
         radius: 25.r,
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).primaryColor,
         child: Image.asset(
           imagePath,
           width: width,

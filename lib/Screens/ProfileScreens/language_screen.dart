@@ -30,11 +30,11 @@ class LanguageScreen extends StatelessWidget {
                 )
               ],
             ),
-            const Text(
+            Text(
               'Select a Language',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                color: Colors.black54,
+                color: Theme.of(context).secondaryHeaderColor.withOpacity(0.54),
               ),
             ),
             Expanded(

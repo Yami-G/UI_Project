@@ -21,7 +21,7 @@ class SideSearchIcon extends StatelessWidget {
         alignment: Alignment.topRight,
         children: [
           CircleAvatar(
-            backgroundColor: Colors.white,
+            backgroundColor: Theme.of(context).primaryColor,
             radius: 24.r,
             child: IconButton(
               onPressed: onPressed,

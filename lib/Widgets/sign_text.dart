@@ -12,8 +12,8 @@ class SignScreenText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
-      style: const TextStyle(
-        color: Colors.black38,
+      style: TextStyle(
+        color: Theme.of(context).secondaryHeaderColor.withOpacity(0.38),
         fontWeight: FontWeight.bold,
       ),
     );

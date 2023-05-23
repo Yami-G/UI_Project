@@ -22,7 +22,7 @@ class LastTextButton extends StatelessWidget {
           Text(
             leftText,
             style: TextStyle(
-              color: Colors.black54,
+              color: Theme.of(context).secondaryHeaderColor.withOpacity(0.54),
               fontWeight: FontWeight.bold,
               fontSize: 16.sp,
             ),

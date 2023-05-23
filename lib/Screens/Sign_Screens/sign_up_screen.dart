@@ -18,8 +18,8 @@ class SignUpScreen extends HookConsumerWidget {
     final formKey = useMemoized(() => GlobalKey<FormState>());
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        iconTheme: const IconThemeData(color: Colors.black),
+        backgroundColor: Theme.of(context).primaryColor,
+        iconTheme: IconThemeData(color: Theme.of(context).secondaryHeaderColor),
         elevation: 0,
       ),
       body: Form(

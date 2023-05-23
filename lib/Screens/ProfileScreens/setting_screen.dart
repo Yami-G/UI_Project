@@ -5,14 +5,13 @@ import '../../Provider/themes_provider.dart';
 import '../../Widgets/title_pop.dart';
 
 final changeSwitchNotification = StateProvider((ref) => true);
-final changeSwitchThemes = StateProvider((ref) => false);
+final changeSwitchThemes = StateProvider((ref) => true);
 
 class SettingScreen extends ConsumerWidget {
   const SettingScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, ref) {
-    final q = ref.watch(themesProvider);
     final x = ref.watch(changeSwitchNotification);
     final y = ref.watch(changeSwitchThemes);
     return Scaffold(
@@ -30,7 +29,7 @@ class SettingScreen extends ConsumerWidget {
                 ),
                 Material(
                   elevation: 4,
-                  color: Colors.white,
+                  color: Theme.of(context).primaryColor,
                   clipBehavior: Clip.hardEdge,
                   borderRadius: BorderRadius.circular(10),
                   child: ListTile(
@@ -58,7 +57,7 @@ class SettingScreen extends ConsumerWidget {
                 ),
                 Material(
                   elevation: 4,
-                  color: Colors.white,
+                  color: Theme.of(context).primaryColor,
                   clipBehavior: Clip.hardEdge,
                   borderRadius: BorderRadius.circular(10),
                   child: ListTile(
@@ -77,6 +76,7 @@ class SettingScreen extends ConsumerWidget {
                               value
                                   ? ref.watch(themesProvider.notifier).lightMode()
                                   : ref.watch(themesProvider.notifier).darkMode();
+                              print('hi');
                             },
                           )
                         ],
@@ -89,7 +89,7 @@ class SettingScreen extends ConsumerWidget {
                 ),
                 Material(
                   elevation: 4,
-                  color: Colors.white,
+                  color: Theme.of(context).primaryColor,
                   clipBehavior: Clip.hardEdge,
                   borderRadius: BorderRadius.circular(10),
                   child: ListTile(

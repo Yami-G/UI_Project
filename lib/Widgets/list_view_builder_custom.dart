@@ -62,7 +62,7 @@ class ListViewBuilderCustom extends StatelessWidget {
                         topLeft: Radius.circular(20.r),
                         bottomRight: Radius.circular(20.r),
                       ),
-                      color: Colors.white,
+                      color: Theme.of(context).primaryColor,
                     ),
                     child: IconButton(
                       onPressed: onPressed,

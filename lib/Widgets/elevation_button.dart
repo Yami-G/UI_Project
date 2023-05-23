@@ -28,7 +28,7 @@ class SignElevatedButton extends StatelessWidget {
           child: Text(
             text,
             style: TextStyle(
-              color: Colors.white.withOpacity(0.8),
+              color: Theme.of(context).primaryColor.withOpacity(0.8),
               fontSize: 20.sp,
             ),
           ),

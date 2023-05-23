@@ -25,10 +25,10 @@ class ListViewTitles extends StatelessWidget {
           ),
           TextButton(
             onPressed: () {},
-            child: const Text(
+            child: Text(
               'See More',
               style: TextStyle(
-                color: Colors.black26,
+                color: Theme.of(context).secondaryHeaderColor.withOpacity(0.26),
                 fontWeight: FontWeight.w500,
               ),
             ),
