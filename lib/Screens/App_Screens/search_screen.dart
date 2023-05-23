@@ -1,16 +1,16 @@
-import 'package:amit_course/Shared/Resources/images.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../../Widgets/custom_list_tile.dart';
+import '../../Shared/dummy_data/dummy_data_list.dart';
+import '../../Widgets/list_tile_custom_widget.dart';
 import '../../Widgets/search_widget.dart';
 
-class SearchScreen extends StatelessWidget {
+class SearchScreen extends ConsumerWidget {
   const SearchScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -31,43 +31,55 @@ class SearchScreen extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  SearchWidget(
+                  const SearchWidget(
                     width: 300,
                     searchWord: 'Search Here',
                   ),
                   Container(
-                    width: 50,
-                    height: 50,
-                    clipBehavior: Clip.hardEdge,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          blurRadius: 3,
-                        ),
-                      ],
-                    ),
-                    child: const Center(
-                      child: FaIcon(
-                        FontAwesomeIcons.sliders,
-                        color: Colors.indigo,
+                      width: 50,
+                      height: 50,
+                      clipBehavior: Clip.hardEdge,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            blurRadius: 3,
+                          ),
+                        ],
                       ),
-                    ),
-                  )
+                      child: IconButton(
+                        onPressed: () {
+                          //todo ref.watch(reFresh.notifier).update((state) => !state);
+                        },
+                        icon: const Center(
+                          child: FaIcon(
+                            FontAwesomeIcons.sliders,
+                            color: Colors.indigo,
+                          ),
+                        ),
+                      ))
                 ],
               ),
             ),
-            CustomListTile(
-              title: 'Bluetooth Printer',
-              imagePath: Images.lapTop,
-              price: 200.75,
-              index: 5,
-              showIcon: true,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.end,
-            )
+            Expanded(
+              child: ListView.builder(
+                itemCount: featuredProducts.length,
+                itemBuilder: (context, index) {
+                  return ListTileCustom(
+                    imagePath: featuredProducts[index].imagePath,
+                    title: featuredProducts[index].productName,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    price: featuredProducts[index].productPrice,
+                    showIcon: true,
+                    makeNewWidget: false,
+                    widget: const SizedBox(),
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),

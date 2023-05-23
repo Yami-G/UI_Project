@@ -1,8 +1,6 @@
-import 'package:amit_course/Shared/Resources/images.dart';
-import 'package:easy_search_bar/easy_search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import '../../Shared/dummy_data/dummy_data_list.dart';
 import '../../Widgets/search_widget.dart';
 
 class CategoriesScreen extends StatelessWidget {
@@ -15,7 +13,7 @@ class CategoriesScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             const Text(
@@ -34,7 +32,7 @@ class CategoriesScreen extends StatelessWidget {
             ),
             Expanded(
               child: GridView.builder(
-                itemCount: 7,
+                itemCount: categoryModels.length,
                 padding: EdgeInsets.only(top: 10.h, left: 5.w, right: 5.w),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
@@ -57,7 +55,7 @@ class CategoriesScreen extends StatelessWidget {
                     child: Stack(
                       children: [
                         Image.asset(
-                          Images.lapTop,
+                          categoryModels[index].imagePath,
                           fit: BoxFit.cover,
                           height: double.infinity,
                           width: double.infinity,
@@ -71,7 +69,7 @@ class CategoriesScreen extends StatelessWidget {
                           left: 15.w,
                           top: 20.h,
                           child: Text(
-                            'Computer',
+                            categoryModels[index].name,
                             style: TextStyle(
                               color: Colors.white.withOpacity(0.8),
                               fontSize: 14.sp,

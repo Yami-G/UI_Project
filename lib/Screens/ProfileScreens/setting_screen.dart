@@ -1,23 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../Provider/themes_provider.dart';
 import '../../Widgets/title_pop.dart';
 
-class SettingScreen extends StatelessWidget {
+final changeSwitchNotification = StateProvider((ref) => true);
+final changeSwitchThemes = StateProvider((ref) => false);
+
+class SettingScreen extends ConsumerWidget {
   const SettingScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ref) {
+    final q = ref.watch(themesProvider);
+    final x = ref.watch(changeSwitchNotification);
+    final y = ref.watch(changeSwitchThemes);
     return Scaffold(
       body: Column(
         children: [
-          TitlePop(
+          const TitlePop(
             title: 'Settings',
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Material(
@@ -26,24 +34,26 @@ class SettingScreen extends StatelessWidget {
                   clipBehavior: Clip.hardEdge,
                   borderRadius: BorderRadius.circular(10),
                   child: ListTile(
-                    title: Text('Push Notifications'),
-                    trailing: Container(
+                    title: const Text('Push Notifications'),
+                    trailing: SizedBox(
                       width: 110,
                       height: 20,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('off / on'),
+                          const Text('off / on'),
                           Switch(
-                            value: false,
-                            onChanged: (value) {},
+                            value: x,
+                            onChanged: (v) {
+                              ref.watch(changeSwitchNotification.notifier).update((state) => !x);
+                            },
                           )
                         ],
                       ),
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Material(
@@ -52,24 +62,29 @@ class SettingScreen extends StatelessWidget {
                   clipBehavior: Clip.hardEdge,
                   borderRadius: BorderRadius.circular(10),
                   child: ListTile(
-                    title: Text('Theme'),
-                    trailing: Container(
+                    title: const Text('Theme'),
+                    trailing: SizedBox(
                       width: 140,
                       height: 20,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Light / Dark'),
+                          const Text('Light / Dark'),
                           Switch(
-                            value: false,
-                            onChanged: (value) {},
+                            value: y,
+                            onChanged: (value) {
+                              ref.watch(changeSwitchThemes.notifier).update((state) => !y);
+                              value
+                                  ? ref.watch(themesProvider.notifier).lightMode()
+                                  : ref.watch(themesProvider.notifier).darkMode();
+                            },
                           )
                         ],
                       ),
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Material(
@@ -78,14 +93,14 @@ class SettingScreen extends StatelessWidget {
                   clipBehavior: Clip.hardEdge,
                   borderRadius: BorderRadius.circular(10),
                   child: ListTile(
-                    title: Text('Language'),
-                    trailing: Container(
+                    title: const Text('Language'),
+                    trailing: SizedBox(
                       width: 80,
                       height: 20,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('Englissh'),
+                        children: const [
+                          Text('English'),
                           Icon(Icons.arrow_forward_ios),
                         ],
                       ),

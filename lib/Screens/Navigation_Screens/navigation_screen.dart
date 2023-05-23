@@ -1,4 +1,3 @@
-import 'package:amit_course/Screens/App_Screens/whish_list_screen.dart';
 import 'package:amit_course/Screens/home_screen.dart';
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
@@ -9,17 +8,18 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../App_Screens/categories_screen.dart';
 import '../App_Screens/profile_screen.dart';
 import '../App_Screens/search_screen.dart';
+import '../App_Screens/wish_list_screen.dart';
 
 final position = StateProvider((ref) => 0);
 
 class NavigatorScreen extends HookConsumerWidget {
   NavigatorScreen({Key? key}) : super(key: key);
   final List<Widget> _navigationScreens = [
-    HomeScreen(),
-    CategoriesScreen(),
-    SearchScreen(),
-    WishListScreen(),
-    ProfileScreen(),
+    const HomeScreen(),
+    const CategoriesScreen(),
+    const SearchScreen(),
+    const WishListScreen(),
+    const ProfileScreen(),
   ];
 
   @override

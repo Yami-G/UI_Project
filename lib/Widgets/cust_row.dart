@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class customRow extends StatelessWidget {
-  String leftText;
-  String rightText;
-  customRow({
+class CustomRow extends StatelessWidget {
+  final String leftText;
+  final String rightText;
+  const CustomRow({
     super.key,
     required this.leftText,
     required this.rightText,

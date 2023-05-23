@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignElevatedButton extends StatelessWidget {
-  String text;
-  double? horizontal;
-  double? vertical;
-  void Function()? onPressed;
-  SignElevatedButton({
+  final String text;
+  final double? horizontal;
+  final double? vertical;
+  final void Function()? onPressed;
+  const SignElevatedButton({
     super.key,
     this.onPressed,
     this.horizontal,

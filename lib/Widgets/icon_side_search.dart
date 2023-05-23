@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SideSearchIcon extends StatelessWidget {
-  IconData icon;
-  int? notification;
-  void Function()? onPressed;
-  SideSearchIcon({
+  final IconData icon;
+  final int? notification;
+  final void Function()? onPressed;
+  const SideSearchIcon({
     super.key,
     required this.icon,
     this.notification,

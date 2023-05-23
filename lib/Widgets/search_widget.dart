@@ -1,12 +1,11 @@
-import 'package:easy_search_bar/easy_search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SearchWidget extends StatelessWidget {
-  double width;
-  String searchWord;
-  TextEditingController? controller;
-  SearchWidget({
+  final double width;
+  final String searchWord;
+  final TextEditingController? controller;
+  const SearchWidget({
     super.key,
     this.controller,
     required this.width,

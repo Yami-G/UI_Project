@@ -89,7 +89,7 @@ class SignUpScreen extends HookConsumerWidget {
                 SizedBox(
                   height: 25.h,
                 ),
-                SignElevatedButton(
+                const SignElevatedButton(
                   text: 'Sign up',
                 ),
                 SizedBox(

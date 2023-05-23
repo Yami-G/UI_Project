@@ -1,7 +1,7 @@
+import 'package:amit_course/Widgets/list_tile_custom_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../Shared/Resources/images.dart';
-import '../../Widgets/custom_list_tile.dart';
 import '../../Widgets/title_pop.dart';
 
 class NotificationScreen extends StatelessWidget {
@@ -14,7 +14,7 @@ class NotificationScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            TitlePop(
+            const TitlePop(
               title: 'Notifications',
             ),
             Padding(
@@ -22,21 +22,28 @@ class NotificationScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'Promotions',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                   ),
                   SizedBox(
                     height: 220,
                     width: double.infinity,
-                    child: CustomListTile(
-                      title: 'Bluetooth Printer',
-                      imagePath: Images.lapTop,
-                      price: 200.75,
-                      index: 2,
-                      showIcon: false,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    child: Expanded(
+                      child: ListView.builder(
+                        itemCount: 2,
+                        itemBuilder: (context, index) {
+                          return const ListTileCustom(
+                              imagePath: Images.lapTop,
+                              title: 'Bluetooth Printer',
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              price: 200.75,
+                              showIcon: false,
+                              makeNewWidget: false,
+                              widget: SizedBox());
+                        },
+                      ),
                     ),
                   ),
                   const Padding(
@@ -63,14 +70,16 @@ class NotificationScreen extends StatelessWidget {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
+                                  children: const [
                                     Text('Order Arrived'),
                                     Text('Order Arrived'),
-                                    Text('Yesterdayy 10:45 AM'),
+                                    Text('Yesterday 10:45 AM'),
                                   ],
                                 ),
                               ),
-                              leading: CircleAvatar(child: Icon(Icons.add_card_rounded)),
+                              leading: const CircleAvatar(
+                                child: Icon(Icons.add_card_rounded),
+                              ),
                             ),
                           ),
                         );

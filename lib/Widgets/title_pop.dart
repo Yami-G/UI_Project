@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class TitlePop extends StatelessWidget {
-  String title;
-  TitlePop({
+  final String title;
+  const TitlePop({
     super.key,
     required this.title,
   });
@@ -17,14 +17,14 @@ class TitlePop extends StatelessWidget {
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: Icon(Icons.arrow_back),
+            icon: const Icon(Icons.arrow_back),
           ),
-          SizedBox(
+          const SizedBox(
             width: 100,
           ),
           Text(
             title,
-            style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
           ),
         ],
       ),

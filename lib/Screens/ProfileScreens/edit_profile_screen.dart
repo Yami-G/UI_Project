@@ -14,7 +14,7 @@ class EditProfileScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            TitlePop(
+            const TitlePop(
               title: 'Edit Profile',
             ),
             Padding(
@@ -38,28 +38,28 @@ class EditProfileScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  CustomTextFormField(
+                  const CustomTextFormField(
                     title: 'Your Message',
                     showTitle: false,
                     hintText: 'Name',
                     obscureText: false,
                     maxLines: 1,
                   ),
-                  CustomTextFormField(
+                  const CustomTextFormField(
                     title: 'Your Message',
                     showTitle: false,
                     hintText: 'Email',
                     obscureText: false,
                     maxLines: 1,
                   ),
-                  CustomTextFormField(
+                  const CustomTextFormField(
                     title: 'Your Message',
                     showTitle: false,
                     hintText: 'Phone',
                     obscureText: false,
                     maxLines: 1,
                   ),
-                  CustomTextFormField(
+                  const CustomTextFormField(
                     title: 'Your Message',
                     showTitle: false,
                     hintText: 'Country',
@@ -69,7 +69,7 @@ class EditProfileScreen extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  SignElevatedButton(
+                  const SignElevatedButton(
                     text: 'Save',
                   )
                 ],

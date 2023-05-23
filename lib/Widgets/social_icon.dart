@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SocialIcon extends StatelessWidget {
-  String imagePath;
-  double? width;
-  double? height;
-  SocialIcon({
+  final String imagePath;
+  final double? width;
+  final double? height;
+  const SocialIcon({
     super.key,
     required this.imagePath,
     this.width,

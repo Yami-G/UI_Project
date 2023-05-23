@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:u_credit_card/u_credit_card.dart';
 
+import '../../Shared/dummy_data/dummy_data_list.dart';
+
 class MyCardScreen extends StatelessWidget {
   const MyCardScreen({Key? key}) : super(key: key);
 
@@ -35,15 +37,16 @@ class MyCardScreen extends StatelessWidget {
             ),
             Expanded(
               child: ListView.builder(
+                itemCount: cardModels.length,
                 itemBuilder: (context, index) {
                   return Container(
                     height: 180,
                     margin: const EdgeInsets.only(bottom: 10),
-                    child: const CreditCardUi(
-                      cardHolderFullName: 'John Doe',
-                      cardNumber: '1234567812345678',
-                      validFrom: '01/23',
-                      validThru: '01/28',
+                    child: CreditCardUi(
+                      cardHolderFullName: cardModels[index].cardHolderFullName,
+                      cardNumber: cardModels[index].cardNumber,
+                      validFrom: cardModels[index].validFrom,
+                      validThru: cardModels[index].validThru,
                       bottomRightColor: Colors.black,
                       topLeftColor: Colors.blue,
                     ),

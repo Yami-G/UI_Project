@@ -63,7 +63,7 @@ class VerificationScreen extends StatelessWidget {
               SizedBox(
                 height: 20.h,
               ),
-              LastTextButton(leftText: "Didn't get a code?", rightText: ' Send again'),
+              const LastTextButton(leftText: "Didn't get a code?", rightText: ' Send again'),
               SizedBox(
                 height: 240.h,
               ),

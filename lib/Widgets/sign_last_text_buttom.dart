@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LastTextButton extends StatelessWidget {
-  void Function()? onTap;
-  String leftText;
-  String rightText;
-  LastTextButton({
+  final void Function()? onTap;
+  final String leftText;
+  final String rightText;
+  const LastTextButton({
     super.key,
     required this.leftText,
     required this.rightText,

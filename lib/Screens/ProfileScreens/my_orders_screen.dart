@@ -1,33 +1,25 @@
 import 'package:flutter/material.dart';
-import '../../Models/orders_models.dart';
+import '../../Shared/dummy_data/dummy_data_list.dart';
 import '../../Widgets/cust_row.dart';
 import '../../Widgets/title_pop.dart';
 
 class MyOrdersScreen extends StatelessWidget {
-  MyOrdersScreen({Key? key}) : super(key: key);
-
-  List<OrdersModels> x = [
-    OrdersModels(id: '26091945147', date: '11/9/2022', totalPrice: '\$ 1750.0', status: 'Pending', isTrack: true),
-    OrdersModels(id: '35091945144', date: '20/5/2022', totalPrice: '\$ 450.0', status: 'Canceled', isTrack: false),
-    OrdersModels(id: '48091945145', date: '5/2/2022', totalPrice: '\$ 790.0', status: 'Delivered', isTrack: false),
-    OrdersModels(id: '98091945149', date: '5/3/2022', totalPrice: '\$ 2000.0', status: 'Canceled', isTrack: false),
-    OrdersModels(id: '10091945146', date: '3/5/2022', totalPrice: '\$ 3000.0', status: 'Pending', isTrack: true),
-  ];
+  const MyOrdersScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
-          TitlePop(
+          const TitlePop(
             title: 'My Orders',
           ),
           Expanded(
             child: ListView.builder(
-              itemCount: x.length,
+              itemCount: ordersModels.length,
               itemBuilder: (context, index) {
                 return Card(
-                  margin: EdgeInsets.only(bottom: 15, left: 20, right: 20),
+                  margin: const EdgeInsets.only(bottom: 15, left: 20, right: 20),
                   elevation: 4,
                   child: Container(
                     clipBehavior: Clip.hardEdge,
@@ -37,28 +29,28 @@ class MyOrdersScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          customRow(
-                            rightText: x[index].id,
+                          CustomRow(
+                            rightText: ordersModels[index].id,
                             leftText: 'Order #',
                           ),
                           const Divider(
                             color: Colors.black,
                           ),
-                          customRow(
+                          CustomRow(
                             leftText: 'Date',
-                            rightText: x[index].date,
+                            rightText: ordersModels[index].date,
                           ),
-                          customRow(
+                          CustomRow(
                             leftText: 'Total Price',
-                            rightText: x[index].totalPrice,
+                            rightText: ordersModels[index].totalPrice,
                           ),
-                          customRow(
+                          CustomRow(
                             leftText: 'Status',
-                            rightText: x[index].status,
+                            rightText: ordersModels[index].status,
                           ),
                           Row(
                             children: [
@@ -78,10 +70,10 @@ class MyOrdersScreen extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10,
                               ),
-                              x[index].isTrack
+                              ordersModels[index].isTrack
                                   ? InkWell(
                                       child: Container(
                                         height: 25,
@@ -98,7 +90,7 @@ class MyOrdersScreen extends StatelessWidget {
                                         ),
                                       ),
                                     )
-                                  : SizedBox(),
+                                  : const SizedBox(),
                             ],
                           )
                         ],

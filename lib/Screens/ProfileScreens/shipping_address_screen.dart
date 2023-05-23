@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../Shared/dummy_data/dummy_data_list.dart';
+
 class ShippingAddressScreen extends StatelessWidget {
   const ShippingAddressScreen({Key? key}) : super(key: key);
 
@@ -34,23 +36,23 @@ class ShippingAddressScreen extends StatelessWidget {
             ),
             Expanded(
               child: ListView.builder(
-                itemCount: 4,
+                itemCount: shippingAddress.length,
                 itemBuilder: (context, index) {
-                  return const Card(
+                  return Card(
                     elevation: 4,
                     child: SizedBox(
                       width: double.infinity,
                       height: 100,
                       child: ListTile(
                         title: Padding(
-                          padding: EdgeInsets.symmetric(vertical: 10),
+                          padding: const EdgeInsets.symmetric(vertical: 10),
                           child: Text(
-                            'Jhon doe +684616161',
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                            '${shippingAddress[index].name} +${shippingAddress[index].phone}',
+                            style: const TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ),
-                        subtitle: Text('Schools Streets Behind theOffical School Maghdouch, Saido ,,Lebanon, 1600'),
-                        leading: Icon(
+                        subtitle: Text(shippingAddress[index].shippingDescription),
+                        leading: const Icon(
                           Icons.location_on_outlined,
                           size: 30,
                         ),

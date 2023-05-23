@@ -1,6 +1,8 @@
 import 'package:dash_flags/dash_flags.dart';
 import 'package:flutter/material.dart';
 
+import '../../Shared/dummy_data/dummy_data_list.dart';
+
 class LanguageScreen extends StatelessWidget {
   const LanguageScreen({Key? key}) : super(key: key);
 
@@ -23,7 +25,9 @@ class LanguageScreen extends StatelessWidget {
                   'Language',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 ),
-                const Icon(Icons.add_location_alt_outlined),
+                const SizedBox(
+                  width: 50,
+                )
               ],
             ),
             const Text(
@@ -33,18 +37,20 @@ class LanguageScreen extends StatelessWidget {
                 color: Colors.black54,
               ),
             ),
-            Expanded(child: ListView.builder(
+            Expanded(
+                child: ListView.builder(
+              itemCount: languageModels.length,
               itemBuilder: (context, index) {
                 return Container(
-                  margin: EdgeInsets.only(bottom: 8),
+                  margin: const EdgeInsets.only(bottom: 8),
                   child: Card(
                     elevation: 5,
                     child: ListTile(
                       leading: LanguageFlag(
-                        language: Language.ar, // OR Language.fromCode('ar')
+                        language: languageModels[index].flagLanguage, // OR Language.fromCode('ar')
                         height: 30,
                       ),
-                      title: Text('Arabic'),
+                      title: Text(languageModels[index].countryName),
                     ),
                   ),
                 );
