@@ -19,7 +19,7 @@ class SignUpScreen extends HookConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
-        iconTheme: IconThemeData(color: Theme.of(context).secondaryHeaderColor),
+        iconTheme: IconThemeData(color: Colors.black),
         elevation: 0,
       ),
       body: Form(

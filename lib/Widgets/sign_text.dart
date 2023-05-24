@@ -13,7 +13,7 @@ class SignScreenText extends StatelessWidget {
     return Text(
       title,
       style: TextStyle(
-        color: Theme.of(context).secondaryHeaderColor.withOpacity(0.38),
+        color: Colors.black.withOpacity(0.38),
         fontWeight: FontWeight.bold,
       ),
     );

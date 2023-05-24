@@ -1,12 +1,15 @@
-import 'package:amit_course/Screens/Navigation_Screens/navigation_screen.dart';
+import 'package:amit_course/Screens/Early_Screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'Provider/themes_provider.dart';
+import 'Shared/Service/shared_storage.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedStorage.getInstance();
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
     statusBarIconBrightness: Brightness.dark,
@@ -29,7 +32,7 @@ class MyApp extends ConsumerWidget {
           theme: ref.watch(themesProvider),
           darkTheme: ThemeData.dark(),
           debugShowCheckedModeBanner: false,
-          home: NavigatorScreen(),
+          home: const SplashScreen(),
         );
       },
     );

@@ -1,3 +1,4 @@
+import 'package:amit_course/Models/login_model.dart';
 import 'package:amit_course/Screens/Navigation_Screens/navigation_screen.dart';
 import 'package:amit_course/Screens/Sign_Screens/sign_up_screen.dart';
 import 'package:amit_course/Shared/Resources/text.dart';
@@ -7,13 +8,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import '../../Provider/side_provider.dart';
 import '../../Shared/Resources/images.dart';
+import '../../Shared/Service/shared_storage.dart';
 import '../../Shared/Service/validation_class.dart';
 import '../../Widgets/cust_text_form_field.dart';
 import '../../Widgets/sign_last_text_buttom.dart';
 import '../../Widgets/social_icon.dart';
-
-final checkBoxProvider = StateProvider((ref) => false);
 
 class SignInScreen extends HookConsumerWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -47,8 +48,7 @@ class SignInScreen extends HookConsumerWidget {
                 ),
                 Text(
                   Texts.login,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Theme.of(context).secondaryHeaderColor.withOpacity(0.54)),
+                  style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black.withOpacity(0.54)),
                 ),
                 SizedBox(
                   height: 15.h,
@@ -127,6 +127,10 @@ class SignInScreen extends HookConsumerWidget {
                   text: 'Login',
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
+                      ref
+                          .watch(userDataLogin.notifier)
+                          .update((state) => LoginUser(phone: emailController.text, password: passwordController.text));
+                      SharedStorage().setUserData(loginUser: ref.watch(userDataLogin));
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (context) => NavigatorScreen(),

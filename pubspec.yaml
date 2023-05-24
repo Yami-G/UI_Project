@@ -37,6 +37,9 @@ dependencies:
   flutter_beep:
   flutter_otp_text_field: ^1.1.0+2
 
+  #shared_preferences:
+  shared_preferences: ^2.1.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
