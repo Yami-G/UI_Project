@@ -29,21 +29,19 @@ class NotificationScreen extends StatelessWidget {
                   SizedBox(
                     height: 220,
                     width: double.infinity,
-                    child: Expanded(
-                      child: ListView.builder(
-                        itemCount: 2,
-                        itemBuilder: (context, index) {
-                          return const ListTileCustom(
-                              imagePath: Images.lapTop,
-                              title: 'Bluetooth Printer',
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              price: 200.75,
-                              showIcon: false,
-                              makeNewWidget: false,
-                              widget: SizedBox());
-                        },
-                      ),
+                    child: ListView.builder(
+                      itemCount: 2,
+                      itemBuilder: (context, index) {
+                        return const ListTileCustom(
+                            imagePath: Images.lapTop,
+                            title: 'Bluetooth Printer',
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            price: 200.75,
+                            showIcon: false,
+                            makeNewWidget: false,
+                            widget: SizedBox());
+                      },
                     ),
                   ),
                   const Padding(

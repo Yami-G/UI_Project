@@ -35,7 +35,7 @@ class CartScreen extends ConsumerWidget {
                   ],
                 ),
                 Text(
-                  '${ref.watch(cartProvider).isEmpty ? 'Zero' : ref.watch(cartProvider).length} Products',
+                  '${ref.watch(cartProvider).isEmpty ? 'Zero' : ref.watch(cartProvider.notifier).cartProductNumber} Products',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Theme.of(context).secondaryHeaderColor.withOpacity(0.54),
