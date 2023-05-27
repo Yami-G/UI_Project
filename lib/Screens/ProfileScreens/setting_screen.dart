@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../Provider/themes_provider.dart';
+import '../../Shared/Service/shared_storage.dart';
 import '../../Widgets/title_pop.dart';
 
 final changeSwitchNotification = StateProvider((ref) => true);
@@ -70,8 +71,11 @@ class SettingScreen extends ConsumerWidget {
                         children: [
                           const Text('Light / Dark'),
                           Switch(
-                            value: y,
+                            value: SharedStorage.localStorage.containsKey('themeModeValue')
+                                ? SharedStorage().getData(dataType: DataType.bool, key: 'themeModeValue')
+                                : y,
                             onChanged: (value) {
+                              SharedStorage().setData(dataType: DataType.bool, key: 'themeModeValue', value: value);
                               ref.watch(changeSwitchThemes.notifier).update((state) => !y);
                               value
                                   ? ref.watch(themesProvider.notifier).lightMode()

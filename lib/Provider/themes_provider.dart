@@ -1,14 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../Shared/Service/shared_storage.dart';
+
 final themesProvider = StateNotifierProvider<ThemesData, ThemeData>((ref) => ThemesData());
 
 class ThemesData extends StateNotifier<ThemeData> {
   ThemesData()
-      : super(ThemeData(
-          scaffoldBackgroundColor: Colors.white,
-          primaryColor: Colors.white,
-        ));
+      : super(SharedStorage.localStorage.containsKey('themeModeValue')
+            ? SharedStorage().getData(dataType: DataType.bool, key: 'themeModeValue')
+                ? ThemeData(
+                    scaffoldBackgroundColor: Colors.white,
+                    primaryColor: Colors.white,
+                  )
+                : ThemeData.dark()
+            : ThemeData(
+                scaffoldBackgroundColor: Colors.white,
+                primaryColor: Colors.white,
+              ));
 
   lightMode() {
     state = ThemeData(

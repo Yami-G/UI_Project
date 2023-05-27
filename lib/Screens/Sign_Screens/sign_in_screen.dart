@@ -127,9 +127,13 @@ class SignInScreen extends HookConsumerWidget {
                   text: 'Login',
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
-                      ref
-                          .watch(userDataLogin.notifier)
-                          .update((state) => LoginUser(phone: emailController.text, password: passwordController.text));
+                      ref.watch(userDataLogin.notifier).update((state) => LoginUser(
+                          phone: '',
+                          password: passwordController.text,
+                          name: '',
+                          email: emailController.text,
+                          country: '',
+                          imagePath: ''));
                       SharedStorage().setUserData(loginUser: ref.watch(userDataLogin));
                       Navigator.of(context).push(
                         MaterialPageRoute(

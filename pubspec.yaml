@@ -13,7 +13,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  bot_toast: ^4.0.3
+  connectivity_plus: ^3.0.2
 
   #icons
   cupertino_icons: ^1.0.2
@@ -39,6 +40,9 @@ dependencies:
 
   #shared_preferences:
   shared_preferences: ^2.1.1
+  #dio
+  dio: ^5.1.2
+
 
 dev_dependencies:
   flutter_test:
