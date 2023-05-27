@@ -1,27 +1,29 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../../Shared/Resources/images.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import '../../Provider/side_provider.dart';
 import '../../Shared/dummy_data/dummy_data_list.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends ConsumerWidget {
   const ProfileScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
         child: Column(
           children: [
-            const CircleAvatar(
+            CircleAvatar(
               radius: 50,
-              foregroundImage: AssetImage(Images.lapTop),
+              foregroundImage: FileImage(File(ref.watch(userDataLogin).imagePath)),
             ),
             const SizedBox(
               height: 10,
             ),
-            const Text(
-              'John Doe',
+            Text(
+              ref.watch(userDataLogin).name == '' ? 'Edit your Profile' : ref.watch(userDataLogin).name,
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             ),
             Expanded(

@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:amit_course/Shared/Service/image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -37,16 +40,30 @@ class EditProfileScreen extends HookConsumerWidget {
                     Stack(
                       alignment: Alignment.bottomRight,
                       children: [
-                        const CircleAvatar(
-                          radius: 50,
-                          foregroundImage: AssetImage(Images.lapTop),
-                        ),
                         CircleAvatar(
-                          backgroundColor: Colors.grey.shade300,
-                          radius: 15,
-                          child: Icon(
-                            Icons.camera_alt_outlined,
-                            color: Theme.of(context).secondaryHeaderColor,
+                          radius: 50,
+                          foregroundImage: FileImage(File(ref.watch(userDataLogin).imagePath)),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            ImagesPicker()
+                                .getCameraImage()
+                                .then((v) => ref.watch(userDataLogin.notifier).update((state) => LoginUser(
+                                      name: ref.watch(userDataLogin).name,
+                                      phone: ref.watch(userDataLogin).phone,
+                                      password: ref.watch(userDataLogin).password,
+                                      imagePath: ImagesPicker.imagePicked.toString(),
+                                      email: ref.watch(userDataLogin).email,
+                                      country: ref.watch(userDataLogin).country,
+                                    )));
+                          },
+                          child: CircleAvatar(
+                            backgroundColor: Colors.grey.shade300,
+                            radius: 15,
+                            child: Icon(
+                              Icons.camera_alt_outlined,
+                              color: Theme.of(context).secondaryHeaderColor,
+                            ),
                           ),
                         ),
                       ],
@@ -128,7 +145,7 @@ class EditProfileScreen extends HookConsumerWidget {
                             name: nameController.text,
                             phone: phoneController.text,
                             password: ref.watch(userDataLogin).password,
-                            imagePath: '',
+                            imagePath: ref.watch(userDataLogin).imagePath,
                             email: emailController.text,
                             country: countryController.text,
                           ));
@@ -136,7 +153,7 @@ class EditProfileScreen extends HookConsumerWidget {
                                 name: nameController.text,
                                 phone: phoneController.text,
                                 password: ref.watch(userDataLogin).password,
-                                imagePath: '',
+                                imagePath: ref.watch(userDataLogin).imagePath,
                                 email: emailController.text,
                                 country: countryController.text,
                               ));

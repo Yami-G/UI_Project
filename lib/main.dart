@@ -1,5 +1,5 @@
 import 'package:amit_course/Screens/Early_Screens/splash_screen.dart';
-import 'package:amit_course/Screens/Sign_Screens/sign_in_screen.dart';
+import 'package:amit_course/Shared/Service/image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -15,6 +15,7 @@ void main() {
     statusBarIconBrightness: Brightness.dark,
     statusBarBrightness: Brightness.light,
   ));
+  ImagesPicker.getInstance();
   SharedStorage.getInstance().whenComplete(() => runApp(const ProviderScope(child: MyApp())));
 }
 

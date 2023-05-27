@@ -43,6 +43,9 @@ dependencies:
   #dio
   dio: ^5.1.2
 
+  image_picker: ^0.8.7+5
+
+
 
 dev_dependencies:
   flutter_test:
