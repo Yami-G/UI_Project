@@ -9,7 +9,8 @@ class ListViewBuilderCustom extends StatelessWidget {
   final double productPrice;
   final String imagePath;
   final bool isFavorite;
-  const ListViewBuilderCustom({
+  bool? assetOrNetImage;
+  ListViewBuilderCustom({
     super.key,
     this.onPressed,
     this.onTap,
@@ -17,6 +18,7 @@ class ListViewBuilderCustom extends StatelessWidget {
     required this.productName,
     required this.productPrice,
     required this.imagePath,
+    this.assetOrNetImage,
   });
 
   @override
@@ -51,10 +53,15 @@ class ListViewBuilderCustom extends StatelessWidget {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20.r),
                     ),
-                    child: Image.asset(
-                      imagePath,
-                      fit: BoxFit.fill,
-                    ),
+                    child: assetOrNetImage == null
+                        ? Image.asset(
+                            imagePath,
+                            fit: BoxFit.fill,
+                          )
+                        : Image.network(
+                            imagePath,
+                            fit: BoxFit.fill,
+                          ),
                   ),
                   Container(
                     decoration: BoxDecoration(

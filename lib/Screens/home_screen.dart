@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../Provider/cart_provider.dart';
+import '../Provider/fake_api_provider.dart';
 import '../Provider/product_provider.dart';
 import '../Provider/side_provider.dart';
 import '../Shared/dummy_data/dummy_data_list.dart';
@@ -23,6 +24,11 @@ class HomeScreen extends ConsumerWidget {
     ref.watch(cartProvider);
     ref.watch(isFavoriteProvider);
     ref.watch(productDetails);
+    final allProductList = ref.watch(fakeAPIProvider.notifier).allProductList;
+    final electronicsList = ref.watch(fakeAPIProvider.notifier).electronicsList;
+    final jeweleryList = ref.watch(fakeAPIProvider.notifier).jeweleryList;
+    final menClothingList = ref.watch(fakeAPIProvider.notifier).menClothingList;
+    final womenClothingList = ref.watch(fakeAPIProvider.notifier).womenClothingList;
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -76,17 +82,17 @@ class HomeScreen extends ConsumerWidget {
                 child: ListView.builder(
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
-                  itemCount: specialForYou.length,
+                  itemCount: allProductList.length,
                   itemBuilder: (context, index) {
                     return SpecialLIstViewWidget(
-                      imagePath: specialForYou[index].imagePath,
+                      imagePath: allProductList[index].image!,
                       onTap: () {
-                        ref.read(productDetails.notifier).update((state) => specialForYou[index]);
                         Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => const ProductDetailsScreen(),
                         ));
                       },
-                      productName: specialForYou[index].productName,
+                      productName: allProductList[index].title!,
+                      assetOrNetImage: true,
                     );
                   },
                 ),
@@ -122,7 +128,7 @@ class HomeScreen extends ConsumerWidget {
                 ),
               ),
               const ListViewTitles(
-                title: 'Best Selling Products',
+                title: 'Electronics Products',
               ),
               SizedBox(
                 width: double.infinity.w,
@@ -130,23 +136,97 @@ class HomeScreen extends ConsumerWidget {
                 child: ListView.builder(
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
-                  itemCount: bestSellingProducts.length,
+                  itemCount: electronicsList.length,
                   itemBuilder: (context, index) {
                     return ListViewBuilderCustom(
                       onTap: () {
-                        ref.read(productDetails.notifier).update((state) => bestSellingProducts[index]);
                         Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => const ProductDetailsScreen(),
                         ));
                       },
-                      onPressed: () {
-                        bestSellingProducts[index].isFavorite = !bestSellingProducts[index].isFavorite;
-                        ref.watch(isFavoriteProvider.notifier).update((state) => !state);
+                      imagePath: electronicsList[index].image!,
+                      isFavorite: false,
+                      productName: electronicsList[index].title!,
+                      productPrice: electronicsList[index].price!.toDouble(),
+                      assetOrNetImage: true,
+                    );
+                  },
+                ),
+              ),
+              const ListViewTitles(
+                title: 'jewelery Products',
+              ),
+              SizedBox(
+                width: double.infinity.w,
+                height: 185.h,
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: jeweleryList.length,
+                  itemBuilder: (context, index) {
+                    return ListViewBuilderCustom(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const ProductDetailsScreen(),
+                        ));
                       },
-                      imagePath: bestSellingProducts[index].imagePath,
-                      isFavorite: bestSellingProducts[index].isFavorite,
-                      productName: bestSellingProducts[index].productName,
-                      productPrice: bestSellingProducts[index].productPrice,
+                      imagePath: jeweleryList[index].image!,
+                      isFavorite: false,
+                      productName: jeweleryList[index].title!,
+                      productPrice: jeweleryList[index].price!.toDouble(),
+                      assetOrNetImage: true,
+                    );
+                  },
+                ),
+              ),
+              const ListViewTitles(
+                title: 'MenClothing Products',
+              ),
+              SizedBox(
+                width: double.infinity.w,
+                height: 185.h,
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: menClothingList.length,
+                  itemBuilder: (context, index) {
+                    return ListViewBuilderCustom(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const ProductDetailsScreen(),
+                        ));
+                      },
+                      imagePath: menClothingList[index].image!,
+                      isFavorite: false,
+                      productName: menClothingList[index].title!,
+                      productPrice: menClothingList[index].price!.toDouble(),
+                      assetOrNetImage: true,
+                    );
+                  },
+                ),
+              ),
+              const ListViewTitles(
+                title: 'WomenClothing Products',
+              ),
+              SizedBox(
+                width: double.infinity.w,
+                height: 185.h,
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: womenClothingList.length,
+                  itemBuilder: (context, index) {
+                    return ListViewBuilderCustom(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const ProductDetailsScreen(),
+                        ));
+                      },
+                      imagePath: womenClothingList[index].image!,
+                      isFavorite: false,
+                      productName: womenClothingList[index].title!,
+                      productPrice: womenClothingList[index].price!.toDouble(),
+                      assetOrNetImage: true,
                     );
                   },
                 ),

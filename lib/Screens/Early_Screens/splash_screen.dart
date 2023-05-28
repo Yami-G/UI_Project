@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../Provider/fake_api_provider.dart';
 import '../../Provider/side_provider.dart';
 import '../../Shared/Service/shared_storage.dart';
 import '../Navigation_Screens/navigation_screen.dart';
@@ -14,6 +15,11 @@ class SplashScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    ref.watch(fakeAPIProvider.notifier).getAllProductList();
+    ref.watch(fakeAPIProvider.notifier).getElectronicsList();
+    ref.watch(fakeAPIProvider.notifier).getJeweleryList();
+    ref.watch(fakeAPIProvider.notifier).getMenClothingList();
+    ref.watch(fakeAPIProvider.notifier).getWomenClothingList();
     Future.delayed(const Duration(seconds: 2), () async {
       SharedStorage().getUserData(key: StorageKeys.userData).then((v) {
         debugPrint('user = $v');

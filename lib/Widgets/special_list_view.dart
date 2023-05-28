@@ -5,11 +5,13 @@ class SpecialLIstViewWidget extends StatelessWidget {
   final String imagePath;
   final String productName;
   final Function()? onTap;
-  const SpecialLIstViewWidget({
+  bool? assetOrNetImage;
+  SpecialLIstViewWidget({
     super.key,
     required this.productName,
     required this.imagePath,
     required this.onTap,
+    this.assetOrNetImage,
   });
 
   @override
@@ -25,12 +27,19 @@ class SpecialLIstViewWidget extends StatelessWidget {
         ),
         child: Stack(
           children: [
-            Image.asset(
-              imagePath,
-              fit: BoxFit.cover,
-              height: double.infinity,
-              width: double.infinity,
-            ),
+            assetOrNetImage == null
+                ? Image.asset(
+                    imagePath,
+                    fit: BoxFit.cover,
+                    height: double.infinity,
+                    width: double.infinity,
+                  )
+                : Image.network(
+                    imagePath,
+                    fit: BoxFit.cover,
+                    height: double.infinity,
+                    width: double.infinity,
+                  ),
             Container(
               color: Colors.black12,
               height: double.infinity,

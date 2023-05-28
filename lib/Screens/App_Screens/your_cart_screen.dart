@@ -128,6 +128,7 @@ class CartScreen extends ConsumerWidget {
                       ),
                       onPressed: () {
                         ref.watch(cartProvider.notifier).clearCart();
+
                         // ref.watch(reFresh.notifier).update((state) => !state);
                       },
                       child: const Text('Check Out'),
