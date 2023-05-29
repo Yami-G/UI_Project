@@ -3,6 +3,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../Models/fakeAPI.dart';
 
+enum Category {
+  electronics,
+  jewelery,
+  menClothing,
+  womenClothing,
+}
+
 final fakeAPIProvider = StateNotifierProvider<FakeAPI, List<FakeApi>>((ref) => FakeAPI());
 
 class FakeAPI extends StateNotifier<List<FakeApi>> {
@@ -15,12 +22,12 @@ class FakeAPI extends StateNotifier<List<FakeApi>> {
   late List<String> categoryList = [];
   late List<FakeApi> suggestions = [];
 
-  changeAllProductList(String searchText, List<FakeApi> listWantedToSearchOn) {
+  searchAllProductList(String searchText) {
+    state = [...state];
     if (searchText.isNotEmpty) {
       suggestions = allProductList.where((product) {
         final productName = product.title!.toLowerCase();
         allProductList = suggestions;
-        state = [...state];
         return productName.contains(searchText);
       }).toList();
       allProductList = suggestions;
@@ -33,47 +40,45 @@ class FakeAPI extends StateNotifier<List<FakeApi>> {
   }
 
   getAllProductList() async {
-    final response = await DioHelper().getApiMethod('https://fakestoreapi.com/products');
+    final response = await DioHelper.getApiMethod('');
     for (var e in response) {
       state = [...state, FakeApi.fromJson(e)];
-      allProductList = state;
     }
+    allProductList = state;
   }
 
-  getElectronicsList() async {
-    final response = await DioHelper().getApiMethod('https://fakestoreapi.com/products/category/electronics');
-    for (var e in response) {
-      electronicsList.add(FakeApi.fromJson(e));
+  getCertainCategory(Category category) {
+    List<FakeApi> listForCategory = [];
+    switch (category) {
+      case Category.electronics:
+        listForCategory.addAll(state.where((product) {
+          final productCategory = product.category;
+          return productCategory!.contains('electronics');
+        }));
+        return listForCategory;
+      case Category.jewelery:
+        listForCategory.addAll(state.where((product) {
+          final productCategory = product.category;
+          return productCategory!.contains('jewelery');
+        }));
+        return listForCategory;
+      case Category.menClothing:
+        listForCategory.addAll(state.where((product) {
+          final productCategory = product.category;
+          return productCategory!.contains("men's clothing");
+        }));
+        return listForCategory;
+      case Category.womenClothing:
+        listForCategory.addAll(state.where((product) {
+          final productCategory = product.category;
+          return productCategory!.contains("women's clothing");
+        }));
+        return listForCategory;
     }
-    state = [...state];
-  }
-
-  getJeweleryList() async {
-    final response = await DioHelper().getApiMethod('https://fakestoreapi.com/products/category/jewelery');
-    for (var e in response) {
-      jeweleryList.add(FakeApi.fromJson(e));
-    }
-    state = [...state];
-  }
-
-  getMenClothingList() async {
-    final response = await DioHelper().getApiMethod("https://fakestoreapi.com/products/category/men's clothing");
-    for (var e in response) {
-      menClothingList.add(FakeApi.fromJson(e));
-    }
-    state = [...state];
-  }
-
-  getWomenClothingList() async {
-    final response = await DioHelper().getApiMethod("https://fakestoreapi.com/products/category/women's clothing");
-    for (var e in response) {
-      womenClothingList.add(FakeApi.fromJson(e));
-    }
-    state = [...state];
   }
 
   getCategoryList() async {
-    final response = await DioHelper().getApiMethod('https://fakestoreapi.com/products/categories');
+    final response = await DioHelper.getApiMethod('/products/categories');
     for (var e in response) {
       categoryList.add(e);
     }

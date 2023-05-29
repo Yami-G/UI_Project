@@ -16,10 +16,6 @@ class SplashScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ref.watch(fakeAPIProvider.notifier).getAllProductList();
-    ref.watch(fakeAPIProvider.notifier).getElectronicsList();
-    ref.watch(fakeAPIProvider.notifier).getJeweleryList();
-    ref.watch(fakeAPIProvider.notifier).getMenClothingList();
-    ref.watch(fakeAPIProvider.notifier).getWomenClothingList();
     Future.delayed(const Duration(seconds: 2), () async {
       SharedStorage().getUserData(key: StorageKeys.userData).then((v) {
         debugPrint('user = $v');

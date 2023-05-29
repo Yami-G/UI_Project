@@ -3,11 +3,10 @@ import 'package:dio/dio.dart';
 class DioHelper {
   static Dio dio = Dio();
 
-  getApiMethod(String url) async {
+  static getApiMethod(String url) async {
     try {
-      final response = await dio.get(url);
+      final response = await dio.get('https://fakestoreapi.com/products$url');
       if ((response.statusCode ?? 0) >= 200 && (response.statusCode ?? 0) < 400) {
-        print('API response body : ${response.data}');
         return response.data;
       } else {
         print(response.statusCode);

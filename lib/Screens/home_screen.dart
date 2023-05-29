@@ -28,10 +28,10 @@ class HomeScreen extends HookConsumerWidget {
     ref.watch(productDetails);
     ref.watch(fakeAPIProvider);
     final allProductList = ref.watch(fakeAPIProvider.notifier).allProductList;
-    final electronicsList = ref.watch(fakeAPIProvider.notifier).electronicsList;
-    final jeweleryList = ref.watch(fakeAPIProvider.notifier).jeweleryList;
-    final menClothingList = ref.watch(fakeAPIProvider.notifier).menClothingList;
-    final womenClothingList = ref.watch(fakeAPIProvider.notifier).womenClothingList;
+    final electronicsList = ref.watch(fakeAPIProvider.notifier).getCertainCategory(Category.electronics);
+    final jeweleryList = ref.watch(fakeAPIProvider.notifier).getCertainCategory(Category.jewelery);
+    final menClothingList = ref.watch(fakeAPIProvider.notifier).getCertainCategory(Category.menClothing);
+    final womenClothingList = ref.watch(fakeAPIProvider.notifier).getCertainCategory(Category.womenClothing);
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -51,9 +51,7 @@ class HomeScreen extends HookConsumerWidget {
                       width: 200.w,
                       searchWord: 'Search Product',
                       onChanged: (v) {
-                        ref
-                            .watch(fakeAPIProvider.notifier)
-                            .changeAllProductList(v, ref.watch(fakeAPIProvider.notifier).allProductList);
+                        ref.watch(fakeAPIProvider.notifier).searchAllProductList(v);
                       },
                       onSaved: (v) {},
                       controller: searchTextController,
