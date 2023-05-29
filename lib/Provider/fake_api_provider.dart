@@ -19,7 +19,6 @@ class FakeAPI extends StateNotifier<List<FakeApi>> {
   late List<FakeApi> suggestions = [];
 
   searchAllProductList(String searchText) {
-    state = [...state];
     if (searchText.isNotEmpty) {
       suggestions = allProductList.where((product) {
         final productName = product.title!.toLowerCase();
