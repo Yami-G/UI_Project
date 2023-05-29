@@ -23,8 +23,8 @@ class WishListScreen extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: 20),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20),
               child: SearchWidget(
                 width: double.infinity,
                 searchWord: 'Search Product',

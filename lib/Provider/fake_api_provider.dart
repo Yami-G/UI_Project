@@ -13,13 +13,31 @@ class FakeAPI extends StateNotifier<List<FakeApi>> {
   late List<FakeApi> menClothingList = [];
   late List<FakeApi> womenClothingList = [];
   late List<String> categoryList = [];
+  late List<FakeApi> suggestions = [];
+
+  changeAllProductList(String searchText, List<FakeApi> listWantedToSearchOn) {
+    if (searchText.isNotEmpty) {
+      suggestions = allProductList.where((product) {
+        final productName = product.title!.toLowerCase();
+        allProductList = suggestions;
+        state = [...state];
+        return productName.contains(searchText);
+      }).toList();
+      allProductList = suggestions;
+      state = [...state];
+    } else if (searchText.isEmpty) {
+      allProductList = [];
+      allProductList = state;
+      state = [...state];
+    }
+  }
 
   getAllProductList() async {
     final response = await DioHelper().getApiMethod('https://fakestoreapi.com/products');
     for (var e in response) {
-      allProductList.add(FakeApi.fromJson(e));
+      state = [...state, FakeApi.fromJson(e)];
+      allProductList = state;
     }
-    state = [...state];
   }
 
   getElectronicsList() async {

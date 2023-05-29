@@ -5,11 +5,15 @@ class SearchWidget extends StatelessWidget {
   final double width;
   final String searchWord;
   final TextEditingController? controller;
-  const SearchWidget({
+  void Function(String)? onChanged;
+  void Function(String?)? onSaved;
+  SearchWidget({
     super.key,
     this.controller,
     required this.width,
     required this.searchWord,
+    this.onChanged,
+    this.onSaved,
   });
 
   @override
@@ -26,7 +30,8 @@ class SearchWidget extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.only(left: 20),
             child: TextFormField(
-              onSaved: (s) {},
+              onSaved: onSaved,
+              onChanged: onChanged,
               controller: controller,
               decoration: InputDecoration(
                 filled: true,

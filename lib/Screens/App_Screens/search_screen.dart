@@ -31,7 +31,7 @@ class SearchScreen extends ConsumerWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const SearchWidget(
+                  SearchWidget(
                     width: 300,
                     searchWord: 'Search Here',
                   ),
