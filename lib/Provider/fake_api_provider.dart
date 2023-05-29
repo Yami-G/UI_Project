@@ -15,10 +15,6 @@ final fakeAPIProvider = StateNotifierProvider<FakeAPI, List<FakeApi>>((ref) => F
 class FakeAPI extends StateNotifier<List<FakeApi>> {
   FakeAPI() : super([]);
   late List<FakeApi> allProductList = [];
-  late List<FakeApi> electronicsList = [];
-  late List<FakeApi> jeweleryList = [];
-  late List<FakeApi> menClothingList = [];
-  late List<FakeApi> womenClothingList = [];
   late List<String> categoryList = [];
   late List<FakeApi> suggestions = [];
 
