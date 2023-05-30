@@ -26,6 +26,7 @@ class HomeScreen extends HookConsumerWidget {
     ref.watch(cartProvider);
     ref.watch(isFavoriteProvider);
     ref.watch(productDetails);
+    ref.watch(fakeProductDetails);
     ref.watch(fakeAPIProvider);
     final allProductList = ref.watch(fakeAPIProvider.notifier).allProductList;
     final electronicsList = ref.watch(fakeAPIProvider.notifier).getCertainCategory(Category.electronics);
@@ -95,6 +96,7 @@ class HomeScreen extends HookConsumerWidget {
                     return SpecialLIstViewWidget(
                       imagePath: allProductList[index].image!,
                       onTap: () {
+                        ref.watch(fakeProductDetails.notifier).update((state) => allProductList[index]);
                         Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => const ProductDetailsScreen(),
                         ));
@@ -148,6 +150,7 @@ class HomeScreen extends HookConsumerWidget {
                   itemBuilder: (context, index) {
                     return ListViewBuilderCustom(
                       onTap: () {
+                        ref.watch(fakeProductDetails.notifier).update((state) => electronicsList[index]);
                         Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => const ProductDetailsScreen(),
                         ));
@@ -174,6 +177,7 @@ class HomeScreen extends HookConsumerWidget {
                   itemBuilder: (context, index) {
                     return ListViewBuilderCustom(
                       onTap: () {
+                        ref.watch(fakeProductDetails.notifier).update((state) => jeweleryList[index]);
                         Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => const ProductDetailsScreen(),
                         ));
@@ -200,6 +204,7 @@ class HomeScreen extends HookConsumerWidget {
                   itemBuilder: (context, index) {
                     return ListViewBuilderCustom(
                       onTap: () {
+                        ref.watch(fakeProductDetails.notifier).update((state) => menClothingList[index]);
                         Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => const ProductDetailsScreen(),
                         ));
@@ -226,6 +231,7 @@ class HomeScreen extends HookConsumerWidget {
                   itemBuilder: (context, index) {
                     return ListViewBuilderCustom(
                       onTap: () {
+                        ref.watch(fakeProductDetails.notifier).update((state) => womenClothingList[index]);
                         Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => const ProductDetailsScreen(),
                         ));

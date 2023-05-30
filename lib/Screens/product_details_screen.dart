@@ -1,13 +1,11 @@
+import 'package:amit_course/Models/fakeAPI.dart';
 import 'package:amit_course/Widgets/elevation_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../Models/products_models.dart';
 import '../Provider/cart_provider.dart';
 import '../Provider/product_provider.dart';
 import '../Provider/side_provider.dart';
-import '../Widgets/color_wiget_row.dart';
 import '../Widgets/first_row_details.dart';
-import '../Widgets/size_widget_row.dart';
 
 class ProductDetailsScreen extends ConsumerWidget {
   const ProductDetailsScreen({Key? key}) : super(key: key);
@@ -15,13 +13,13 @@ class ProductDetailsScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ref) {
     ref.watch(cartProvider);
-    final ProductsModels product = ref.watch(productDetails);
+    final FakeApi product = ref.watch(fakeProductDetails);
     ref.watch(isFavoriteProvider);
     return Scaffold(
       body: Stack(
         children: [
-          Image.asset(
-            product.imagePath,
+          Image.network(
+            product.image!,
             width: double.infinity,
             height: 340,
             fit: BoxFit.fill,
@@ -46,13 +44,10 @@ class ProductDetailsScreen extends ConsumerWidget {
                   children: [
                     FirstRowDetails(
                       product: product,
-                      onPressed: () {
-                        product.isFavorite = !product.isFavorite;
-                        ref.watch(isFavoriteProvider.notifier).update((state) => !state);
-                      },
+                      onPressed: () {},
                     ),
                     Text(
-                      product.productName,
+                      product.title!,
                       style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
                     ),
                     const Padding(
@@ -63,11 +58,9 @@ class ProductDetailsScreen extends ConsumerWidget {
                       ),
                     ),
                     Text(
-                      product.description,
+                      product.description!,
                       style: const TextStyle(color: Colors.grey, height: 1.8),
                     ),
-                    ColorWidgetRow(product: product),
-                    SizeWidgetRow(product: product),
                   ],
                 ),
               );
@@ -98,7 +91,6 @@ class ProductDetailsScreen extends ConsumerWidget {
                 child: SignElevatedButton(
                   text: 'Add to Cart',
                   onPressed: () {
-                    ref.watch(cartProvider.notifier).addProductInCart(product);
                     // ref.watch(reFresh.notifier).update((state) => !state);
                   },
                 ),

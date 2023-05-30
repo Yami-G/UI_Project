@@ -1,7 +1,6 @@
+import 'package:amit_course/Models/fakeAPI.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-import '../Models/products_models.dart';
 
 class FirstRowDetails extends StatelessWidget {
   final Function()? onPressed;
@@ -11,7 +10,7 @@ class FirstRowDetails extends StatelessWidget {
     this.onPressed,
   });
 
-  final ProductsModels product;
+  final FakeApi product;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +20,7 @@ class FirstRowDetails extends StatelessWidget {
         Row(
           children: [
             Text(
-              '\$${product.productPrice}',
+              '\$${product.price}',
               style: const TextStyle(
                 color: Colors.indigo,
                 fontSize: 24,
@@ -58,9 +57,9 @@ class FirstRowDetails extends StatelessWidget {
         ),
         IconButton(
           onPressed: onPressed,
-          icon: FaIcon(
-            product.isFavorite ? FontAwesomeIcons.solidHeart : FontAwesomeIcons.heart,
-            color: product.isFavorite ? Colors.red : Colors.indigo,
+          icon: const FaIcon(
+            FontAwesomeIcons.solidHeart,
+            color: Colors.red,
           ),
         ),
       ],

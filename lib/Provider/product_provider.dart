@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../Models/fakeAPI.dart';
 import '../Models/products_models.dart';
 
 final productDetails = StateProvider.autoDispose(
@@ -13,3 +14,11 @@ final productDetails = StateProvider.autoDispose(
     productColor: ProductColor.red,
   ),
 );
+final fakeProductDetails = StateProvider((ref) => FakeApi(
+      id: 1,
+      price: 20,
+      description: '',
+      image: '',
+      title: '',
+      category: '',
+    ));
